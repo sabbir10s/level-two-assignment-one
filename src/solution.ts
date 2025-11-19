@@ -63,3 +63,74 @@ const users = [
 // console.log(filterActiveUsers(users));
 
 // console.log(users);
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book): string => {
+  const availability = book.isAvailable ? "Yes" : "Not";
+  const bookDetails = ` Title: ${book.title},
+    Author: ${book.author},
+    Published: ${book.publishedYear},
+    Available: ${availability},`;
+  return bookDetails;
+};
+
+const myBook: Book = {
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
+  publishedYear: 1925,
+  isAvailable: true,
+};
+
+// printBookDetails(myBook);
+
+// Problem 7
+
+const getUniqueValues = (
+  collection1: number[],
+  collection2: number[]
+): number[] => {
+  const allCollection = [...collection1, ...collection2];
+  const uniqueNumbers: number[] = [];
+
+  allCollection.forEach((item) => {
+    if (!uniqueNumbers.includes(item)) {
+      uniqueNumbers.push(item);
+    }
+  });
+
+  return uniqueNumbers;
+};
+
+// problem 8
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+const calculateTotalPrice = (products: Product[]): number => {
+  if (products.length) {
+    const totalPrice = products.reduce((accumulator, product) => {
+      const total =
+        product.price * product.quantity * (1 - (product.discount ?? 0) / 100);
+      return accumulator + total;
+    }, 0);
+    return totalPrice;
+  }
+  return 0;
+};
+
+const products = [
+  { name: "Pen", price: 10, quantity: 2 },
+  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+  { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
