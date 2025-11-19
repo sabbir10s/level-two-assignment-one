@@ -1,4 +1,4 @@
-# level-two-assignment-one
+# Assignment One (Level Two)
 
 ## TypeScript-এ interfaces এবং types এর মধ্যে কিছু পার্থক্য নিচে দেওয়া হলো:
 
