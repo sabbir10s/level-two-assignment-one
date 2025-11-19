@@ -1,4 +1,6 @@
-const formatValue = <T>(value: T) => {
+const formatValue = (
+  value: string | number | boolean
+): string | number | boolean => {
   if (typeof value === "string") {
     return value.toUpperCase();
   } else if (typeof value === "number") {
@@ -6,6 +8,7 @@ const formatValue = <T>(value: T) => {
   } else if (typeof value === "boolean") {
     return !value;
   }
+  return value;
 };
 
 console.log(formatValue("hello"));
